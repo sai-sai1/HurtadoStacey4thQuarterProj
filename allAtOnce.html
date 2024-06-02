@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="author" content="Stacey Hurtado">
+    <meta name="revised" content="01/01/24">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link rel="stylesheet" href="allAtOnce.css">
+    <title> all at once </title>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="birdFlying.mp4" type="video/mp4">
+</video>
+
+<p class="Homepage"> 
+    <a href="index.html">Homepage</a>
+</p>
+<p class="SignUp"> 
+    <a href="o.html">Sign Up</a>
+</p>
+<p class="QBEverything"> 
+    <a href="everything.html"> Quantum Biology: Everything. </a>
+</p>
+<p class="Everywhere"> 
+    <a href="Everywhere2.html">Everywhere.</a>
+</p>
+<p class="allAtOnce"> 
+   All at once.
+</p>
+
+<h2>Nobody knows what your nose knows ...</h2>
+<p class="description">Guess what, your nose is a physics expert, but wait! There's more... because it is <i> a quantum physics </i>
+ expert, find out how through scrolling down. </p>
+<div id="cursor"></div>
+
+<div class="card-container">
+    <div class="card">
+        <img src="physics2.jpg" alt="">
+        <div class="card-content">
+            <h3>New found observations</h3>
+            <p>We once thought that biological systems are too warm, too wet, and too chaotic for quantum physics to play any part in how they work. But it now seems that life is employing feats of quantum physics every day in messy, real-world systems, including quantum tunneling, wave-particle duality, and even entanglement. </p>
+            <a href="https://byjus.com/physics/quantum-tunnelling/" class="btn">What's Quantum Tunneling?</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="nose.jpg" alt="">
+        <div class="card-content">
+            <h3>The human nose</h3>
+            <p>The human nose can distinguish over one trillion smells. But how exactly the sense of smell works is still a mystery. When a molecule referred to as an odorant enters our nose, it binds to receptors. Initially, the prevailing theory held that these receptors used the shape of the odorants to differentiate smells. The so-called lock and key model suggests that when an odorant finds the right receptor, it fits into it and triggers a specific smell. But the lock and key model ran into trouble when tested. Subjects were able to tell two scents apart, even when the odorant molecules were identical in shape. Some other process must be at work.</p>
+            <a href="https://bigthink.com/life/quantum-physics-biology/" class="btn">How was this theory wrong?</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="glowing.png" alt="">
+        <div class="card-content">
+            <h3>How does Quantum Biology come into play?</h3>
+            <p>Another, still controversial, model suggests that our noses are sensitive to the vibrations within odorant molecules. These vibrations occur when individual atoms within the molecule oscillate back and forth with respect to one another, as if they were loaded onto tiny springs. When an odorant settles into a receptor, the energy of its vibrations causes an electron to quantum tunnel to another location in the receptor. </p>
+            <a href="https://bigthink.com/life/quantum-physics-biology/" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="evolutionEvolve.jpg" alt="">
+        <div class="card-content">
+            <h3>More implications of Quantum Biology</h3>
+            <p>Quantum mechanics might also play a part in evolution. DNA has four bases, called A (adenine), C (cytosine), G (guanine), and T (thymine). The “shapes” of these bases make it so that A always bonds to T, and G to C. During replication, an enzyme “unzips” the DNA strand from top to bottom. Both sides of this unzipped DNA can now be built into identical DNA strands, matching A to C and G to T.</p>
+            <a href="https://www.scientificamerican.com/article/how-migrating-birds-use-quantum-effects-to-navigate/" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="source.jpg" alt="">
+        <div class="card-content">
+            <h3>Website's sources</h3>
+            <p>Check out the sources and explore more about quantum biology.</p>
+            <a href="https://docs.google.com/document/d/1eu1NkPxY7b4rKC7vVutdIRZ5NUCk9TwwBxxX7Ui4VBU/edit" class="btn">Read More</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('mousemove', function(e){
+        let cursor = document.getElementById('cursor');
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
+    });
+</script>
+</body>
+</html>

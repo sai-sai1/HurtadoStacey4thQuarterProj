@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="author" content="Stacey Hurtado">
+    <meta name="revised" content="01/01/24">
+    <link rel="stylesheet" href="o.css">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <title> Sign up </title>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="earth.mp4" type="video/mp4">
+</video>
+
+<p class="Homepage"> 
+    <a href="index.html">Homepage</a>
+</p>
+
+<button class="btn" id="btnLogin-popup">Log in</button>
+
+<div class="container hidden" id="container">
+    <div class="form-box login" id="login-form">
+        <h2>Log in</h2>
+        <form action="#" onsubmit="login(); return false;">
+            <div class="input">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" required>
+            </div>
+            <div class="input">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+            <div class="login-register">
+                <p>Not a member? <a href="#" class="register-link" id="register-link">Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-box register hidden" id="register-form">
+        <h2>Registration</h2>
+        <form action="#" onsubmit="register(); return false;">
+            <div class="input">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" required>
+            </div>
+            <div class="input">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" required>
+            </div>
+            <div class="input">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" required>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="login-register">
+                <p>A member already? <a href="#" class="login-link" id="login-link">Log in</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('container');
+    const btnLoginPopup = document.getElementById('btnLogin-popup');
+    const registerLink = document.getElementById('register-link');
+    const loginLink = document.getElementById('login-link');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    btnLoginPopup.addEventListener('click', function () {
+        container.classList.remove('hidden');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+    });
+
+    registerLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+    });
+
+    loginLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+    });
+
+
+    registerForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const username = document.getElementById('register-username').value;
+        const password = document.getElementById('register-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push({ username, password });
+        localStorage.setItem('users', JSON.stringify(users));
+
+        alert('Registration successful! You can now log in.');
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+    });
+
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            alert('Login successful! Proceeding to the next page.');
+            window.location.href = 'everything.html'; 
+        } else {
+            alert('Invalid username or password. Please try again or register.');
+        }
+    });
+});
+
+</script>
+</body>
+</html>

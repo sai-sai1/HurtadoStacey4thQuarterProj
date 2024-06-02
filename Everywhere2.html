@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="author" content="Stacey Hurtado">
+    <meta name="revised" content="01/01/24">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link rel="stylesheet" href="Everywhere.css">
+    <title> Everywhere </title>
+</head>
+<body>
+
+    <video autoplay muted loop>
+        <source src="photosynthesis.mp4" type="video/mp4">
+    </video>
+
+    <p class="Homepage">
+        <a href="index.html">Homepage</a>
+    </p>
+    <p class="SignUp">
+        <a href="o.html">Sign Up</a>
+    </p>
+    <p class="QBEverything">
+        <a href="everything.html">Quantum Biology: Everything.</a>
+    </p>
+    <p class="Everywhere">
+        Everywhere.
+    </p>
+    <p class="allAtOnce">
+        <a href="allAtOnce.html">All at once.</a>
+    </p>
+
+    <p class="title"><i>Mitochondria is the powerhouse of the cell</i></p>
+    <p class="describe">
+        How can quantum biology explain the process of photosynthesis?
+        <br> Scroll down to find out.
+    </p>
+    <section>
+        <p class="inner-title"><i>Mitochondria is the powerhouse of the cell</i></p>
+    </section>
+
+    <div class="fixed-container">
+        <div class="container2">
+            <div class="slider">
+                <div class="slides" style="background-image: url('photosynthesis1.jpg');">
+                    <div class="content">
+                        <h2>What is Photosynthesis</h2>
+                        <p>
+                            Photosynthesis begins when chlorophyll molecules in the chloroplasts absorb photons from sunlight, initiating a complex sequence of reactions. These reactions split water molecules, releasing oxygen, and converting carbon dioxide into glucose, a form of sugar that plants use as energy. The efficiency of this process is remarkable, as nearly all absorbed light is converted into chemical energy.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="background-image: url('photo22.jpg');">
+                    <div class="content">
+                        <h2>What's the new study</h2>
+                        <p>
+                            The newly understood quantum mechanical basis for this efficiency lies in how excitons, the particles created by photon absorption, are transported within the plant. Unlike classical theories that suggested a random hopping mechanism, quantum superposition allows these excitons to simultaneously explore multiple paths, ensuring they reach the reaction center with minimal energy loss.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="background-image: url('photo3.jpg');">
+                    <div class="content">
+                        <h2>Quantum Biology</h2>
+                        <p>
+                            Quantum biology, a field that examines the role of quantum phenomena in biological systems, has gained significant attention due to discoveries like the quantum basis of photosynthesis.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="background-image: url('photo44.jpg');">
+                    <div class="content">
+                        <h2>How does this work though?</h2>
+                        <p>
+                            Traditional explanations of exciton transport suggested a random, step-by-step transfer between chlorophyll molecules, which couldn't account for the high efficiency observed. In 2007, researchers at the University of California, Berkeley, proposed that quantum superposition could explain this efficiency. Quantum superposition, famously illustrated by Schrödinger's cat, allows particles to exist in multiple states simultaneously. This means excitons can take all possible paths to the reaction center at once, significantly enhancing energy transfer efficiency.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="background-image: url('photo.jpg');">
+                    <div class="content">
+                        <h2>The potential outlook</h2>
+                        <p>
+                            Understanding the role of quantum superposition in photosynthesis can revolutionize technology. For instance, solar cells designed with quantum mechanical principles could achieve higher conversion efficiencies, mimicking the natural process in plants.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <span class="prev"></span>
+            <span class="next"></span>
+        </div>
+    </div>
+
+    <script>
+        let section = document.querySelector('section');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            section.style.clipPath = "circle(" + value * 20 + "px at left center)";
+        });
+
+        let next = document.querySelector('.next');
+        let prev = document.querySelector('.prev');
+        let slider = document.querySelector('.slider');
+
+        next.addEventListener('click', function() {
+            let slides = document.querySelectorAll('.slides');
+            slider.appendChild(slides[0]);
+        });
+
+        prev.addEventListener('click', function() {
+            let slides = document.querySelectorAll('.slides');
+            slider.prepend(slides[slides.length - 1]);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="author" content="Stacey Hurtado">
+    <meta name="revised" content="01/01/24">
+    <link rel="stylesheet" href="Untitled-1.css">
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+</head>
+<body>
+    <div id="text">How Small Can We Get?</div>
+    <div id="description">Nano? Micro? <i>or Quantum?</i> Is there a difference? Scroll down to find out</div>
+    <div id="light"></div>
+    <div id="bg"></div>
+    <div id="bg2"></div>
+
+    <video autoplay muted loop>
+        <source src="photosynthesis.mp4" type="video/mp4">
+    </video>
+
+    <h2 id="aWorld"> <b> A world </b> <br> within worlds </h2>
+    <p id="description2"> From rainforests, all the way down to the tiniest plants, quantum mechanics exists
+        in forms of things like bioluminescence. It operates in an entirely different world, disobeying from the natural and classical
+        laws of physics, how can we decipher the world through the littlest things?
+    </p>
+
+    <h2 id="howBig"> <b>  How Big  </b> </h2>
+    <p id="description3"> can a small thing be? </p>
+    <p id="description4"> The passing of even the smallest species can affect an entire ecosystem. Everything has
+        a certain significance, all of us are integral, from the largest planet down to the smallest particles. Such
+        is the art of quantum physics, but what are examples of it happening in real life? 
+    </p>
+
+    <h1 id="everythingEverywhere"> <i> Everything. Everywhere. All at once. </i></h1>
+
+    <div id="rainforest"></div>
+
+    <div class="container">
+        <div class="img-container">
+            <div class="img">
+                <img src="grasshopp.png">
+            </div>
+            <div class="img-overlay"></div>
+            <div class="img-blocks">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="indicator"></div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="photo2.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="photosynthesis1.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="photosynthesis3.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="photosynthesis5.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="photo22.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="BarTailedGodwit.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="biology2.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="photosynthesis.mp4">
+            </div>
+            <div class="gallery-item">
+                <img src="1.mp4">
+            </div>
+        </div>
+    </div>
+
+    <p class="signup"> 
+        <a href="o.html">Sign Up or Log in</a>
+    </p>
+
+    <script>
+        let text = document.getElementById('text');
+        let light = document.getElementById("light");
+
+        document.addEventListener('mousemove', function(event) {
+            let mouseX = event.pageX;
+            let mouseY = event.pageY;
+            light.style.left = mouseX + 'px';
+            light.style.top = mouseY + 'px';
+
+            let distanceX = mouseX - text.offsetLeft - text.offsetWidth / 2;
+            let distanceY = mouseY - text.offsetTop - text.offsetHeight / 2;
+        });
+
+        const blocks = document.querySelectorAll(".block");
+        const resetDuration = 300;
+
+        blocks.forEach((block) => {
+            let timeoutId;
+
+            block.addEventListener("mouseover", () => {
+                clearTimeout(timeoutId);
+                block.classList.add("active");
+                timeoutId = setTimeout(() => {
+                    block.classList.remove("active");
+                }, resetDuration);
+            });
+        });
+
+        const galleryContainer = document.querySelector(".gallery");
+        const galleryItems = galleryContainer.querySelectorAll(".gallery-item");
+        const indicator = document.querySelector(".indicator");
+
+        const defaultItemFlex = "0 1 20px";
+        const hoverItemFlex = "1 1 400px";
+
+        const updateGalleryItems = () => {
+            galleryItems.forEach((item) => {
+                let flex = defaultItemFlex;
+
+                if (item.isHovered) {
+                    flex = hoverItemFlex;
+                }
+
+                item.style.flex = flex;
+            });
+        };
+
+        galleryItems[0].isHovered = true;
+        updateGalleryItems();
+
+        galleryItems.forEach((item) => {
+            item.addEventListener("mouseenter", () => {
+                galleryItems.forEach((otherItem) => {
+                    otherItem.isHovered = otherItem === item;
+                });
+
+                updateGalleryItems();
+            });
+        });
+
+        galleryContainer.addEventListener("mousemove", (e) => {
+            indicator.style.left = `${e.clientX - galleryContainer.getBoundingClientRect().left}px`;
+        });
+    </script>
+</body>
+</html>
